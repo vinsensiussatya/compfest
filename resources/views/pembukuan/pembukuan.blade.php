@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<ol class="breadcrumb">
-  <li><a href="{{ url('/home') }}">Home</a></li>
-  <li><a href="#">Pembukuan</a></li>
-</ol>
 
 <style type="text/css">
 
@@ -105,7 +101,7 @@ th {
 <h2>Tambah Pembukuan</h2>
 </div>
 
-</hr>
+<hr>
 
 <div>
 <form action="{{ url('franchisee/pembukuan') }}" method="post" enctype="multipart/form-data">
@@ -189,7 +185,7 @@ th {
                           
 <br>
 <br>
-
+<br>
 
     <div class="form-group">
         <input required="required" value="" placeholder="Uraian" type="text" name = "uraian" class="form-control" />
