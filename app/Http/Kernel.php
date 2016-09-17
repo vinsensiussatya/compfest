@@ -51,9 +51,13 @@ class Kernel extends HttpKernel
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'role' => \Bican\Roles\Middleware\VerifyRole::class,
+        'permission' => \Bican\Roles\Middleware\VerifyPermission::class,
+        'level' => \Bican\Roles\Middleware\VerifyLevel::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'jwt.auth' => Tymon\JWTAuth\MiddlewareGetUserFromToken::class,
         'jwt.refresh' => TymonJWTAuth\MiddlewareRefreshToken::class,
+        
        
     ];
 }
