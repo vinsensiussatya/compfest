@@ -24,7 +24,9 @@ class notaController extends Controller
             $datanota->user_id = $id;
             $datanota->buku_id = $buku_id;
             $datanota->tanggal = date('d-m-Y');
-            $datanota->status_pembayaran = "1";       
+            $datanota->status_pembayaran = "1";
+            $datanota->save();
+            $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->where('user_id', $id)->paginate(10);       
         }
 
         else
