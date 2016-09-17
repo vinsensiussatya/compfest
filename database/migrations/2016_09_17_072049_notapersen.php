@@ -19,6 +19,10 @@ class Notapersen extends Migration
             $table->foreign('user_id')
                     ->references('id')->on('users')
                     ->onDelete('cascade');
+            $table -> integer('buku_id') -> unsigned() -> default(0);
+            $table->foreign('buku_id')
+                    ->references('id')->on('pembukuan')
+                    ->onDelete('cascade');
             $table->string('tanggal')->nullable();
             $table->string('presentase1')->nullable();
             $table->string('presentase2')->nullable();
