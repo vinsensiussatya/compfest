@@ -22,14 +22,11 @@ th {
 }
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
 
-                <div class="panel-body">
 
+              
+
+<div style="float: left; margin-left: 100px">
 <table>
 
 <tr>
@@ -87,11 +84,16 @@ th {
 
 </table>
 
-{!!$book->render()!!}
+
+<div align="center"> {!!$book->render()!!} </div>
+</div>
+
 
 @role(2)
-</div>
-<div class="col-md-6 col-sm-6 col-xs-12">
+
+
+<div style="float: right; margin-right: 200px">
+
 <h2>Tambah Pembukuan</h2>
 <form action="{{ url('franchisee/pembukuan') }}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -118,12 +120,13 @@ th {
         <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
     </div>
 </form>
+
          </div>
 @endrole
-            </div>
-        </div>
-    </div>
-</div>
+
+
+
+
 
 
 
