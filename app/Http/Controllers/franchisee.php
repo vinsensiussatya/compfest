@@ -11,7 +11,7 @@ class franchisee extends Controller
 {
     public function index()
     {
-    	$data_franchisee = data_franchisee::all();
+    	$data_franchisee = data_franchisee::paginate(10);
         return Response::json($data_franchisee,200);
     }
 

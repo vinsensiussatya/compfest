@@ -37,6 +37,8 @@ Route::post('api/register', 'userController@register');
 Route::post('api/authenticate', 'userController@authenticate');
 Route::get('api/authenticate/user', 'userController@getAuthenticatedUser');
 
+//Api Pembukuan
+Route::get('/api/pembukuan/user/{id}', 'buku@show');
 
 //Franchisor
 //Pembukuan franchisor

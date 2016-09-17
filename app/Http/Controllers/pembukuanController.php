@@ -15,7 +15,7 @@ use Auth;
 class pembukuanController extends Controller
 {
      public function index()
-    {
+    {	
     	$pembukuan = pembukuan::paginate(5);
         return Response::json($pembukuan,200);
     }
@@ -48,7 +48,7 @@ class pembukuanController extends Controller
 	     return Response::json("not found",404);
 	}
  
-	return Response::json($comment,200);
+	return Response::json($data,200);
 }
 
     public function update($id)
