@@ -50,7 +50,7 @@ th {
                  <td>{{$booking->saldo}}</td>
                  <td>{{$booking->total}}</td>
                  
-                 <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $booking->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
+                 <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $booking->id;?>">Hapus</a></td>
               </tr>
 
 
