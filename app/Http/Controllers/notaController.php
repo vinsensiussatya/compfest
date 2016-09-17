@@ -18,25 +18,33 @@ class notaController extends Controller
         $id = Auth::user()->id;
         $pembukuan = buku::where('user_id', $id)->orderBy('created_at', 'desc')->first();
         $buku_id = $pembukuan->id;
-        $datanota = new nota();
-        $datanota->user_id = $id;
-        $datanota->buku_id = $buku_id;
-        $datanota->tanggal = date('d-m-Y');
-        
-        if($pembukuan->total <= 0) 
+        if (nota::where('buku_id', '=', $buku_id)->count() == 0)
         {
-            $datanota->presentase1 = 0;
-            $datanota->presentase2 = 0;
-            $datanota->save();
-            $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+            $datanota = new nota();
+            $datanota->user_id = $id;
+            $datanota->buku_id = $buku_id;
+            $datanota->tanggal = date('d-m-Y');       
         }
+
         else
         {
-            $datanota->presentase1 = 0.25 * $pembukuan->total;
-            $datanota->presentase2 = 0.75 * $pembukuan->total;
-            $datanota->save();
-            $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+            $datanota = nota::where('buku_id', $buku_id)->firstOrFail();
+            if($pembukuan->total <= 0) 
+            {
+                $datanota->presentase1 = 0;
+                $datanota->presentase2 = 0;
+                $datanota->save();
+                $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+            }
+            else
+            {
+                $datanota->presentase1 = 0.25 * $pembukuan->total;
+                $datanota->presentase2 = 0.75 * $pembukuan->total;
+                $datanota->save();
+                $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+            }
         }
+        
 
         return view('franchisee.pembayaran_franchisee')->with('datanota', $datanota);
         
