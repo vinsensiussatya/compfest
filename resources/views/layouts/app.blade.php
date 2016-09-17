@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
+    <!-- <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet"> -->
+    <link href="{{asset('css/heroic-features.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -21,7 +23,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed" style="background-color: #F57C00; border: none; color: white">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #F57C00; border: none; color: white">
         <div class="container">
             <div class="navbar-header">
 
