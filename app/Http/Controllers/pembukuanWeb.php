@@ -38,7 +38,7 @@ class pembukuanWeb extends Controller
 
         $book = new pembukuan();
         $book->user_id = $user_id->id;
-        $book->tanggal = $request->get('tanggal');
+        $book->tanggal = $request->get('tanggal')."/".$request->get('bulan')."/".$request->get('tahun');
     	$book->uraian = $request->get('uraian');
     	$book->debet = $request->get('debet');
     	$book->kredit = $request->get('kredit');
