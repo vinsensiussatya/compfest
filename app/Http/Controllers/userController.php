@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\User;
+use App\pengguna as User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use JWTAuth;
@@ -12,7 +12,7 @@ use Tymon\JWTAuth\Exceptions\TokenExpiredException;
 use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Response;
 use Auth;
-use App\role;
+use App\roler as role;
 
 class userController extends Controller
 {
@@ -32,17 +32,21 @@ class userController extends Controller
 
 		$role = role::where('user_id',$user->id)->get();
 
+		$nama = $user->name;
+
 		foreach ($role as $roler){
-			$shit = array("role_id" => $roler->role_id);
+			$shit = $roler->role_id;
 		}
 
+
+		$yeah = array('id' => $user->id, 'name' => $user->name, 'email' => $user->email, 'role' => $shit);
 		
 		// if no errors are encountered we can return a JWT
 		//return response()->json(compact('token'));
 		
 		if($user != null){
-	//	return response()->json(array('user'=>$user,'role'=>$shit));
-			return response()->json(array($user, $shit));
+	return response()->json($yeah);
+		//return response()->json(array($user, $shit));
 		}
 
 		else{

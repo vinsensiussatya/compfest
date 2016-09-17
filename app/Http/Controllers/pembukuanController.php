@@ -16,7 +16,7 @@ class pembukuanController extends Controller
 {
      public function index()
     {
-    	$pembukuan = pembukuan::all();
+    	$pembukuan = pembukuan::paginate(5);
         return Response::json($pembukuan,200);
     }
 

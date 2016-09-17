@@ -1,6 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style type="text/css">
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -13,22 +34,25 @@
 
 <tr>
     <th>id</th>
-    <th>user_id</th>
     <th>Tanggal</th>
     <th>Uraian</th>
     <th>Debet</th>
     <th>Kredit</th>
+    <th>Debet-Kredit</th>
+    <th>Saldo</th>
     <th></th>
 </tr>
 
                     @foreach ($book as $booking)
               <tr>
                 <td>{{$booking->id}}</td>
-                <td>{{$booking->user_id}}</td>
                  <td>{{$booking->tanggal}}</td>
                  <td>{{$booking->uraian}}</td>
                  <td>{{$booking->debet}}</td>
                  <td>{{$booking->kredit}}</td>
+                 <td>{{$booking->saldo}}</td>
+                 <td>{{$booking->total}}</td>
+                 
                  <td><center><a class="btn btn-danger" data-placement="bottom" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $booking->id;?>"><span class="glyphicon glyphicon-trash"></a></td>
               </tr>
 
@@ -56,7 +80,10 @@
                         </div>
                     </div>
               
+
+
 @endforeach
+
 
 </table>
 
