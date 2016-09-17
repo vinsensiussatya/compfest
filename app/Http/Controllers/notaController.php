@@ -24,10 +24,9 @@ class notaController extends Controller
     public function notafranchisor()
     {
 
-        $daftarnota = nota::where('user_id', $id)->orderBy('created_at','desc')->paginate(10);
+        $daftarnota = nota::orderBy('created_at','desc')->paginate(10);
         
-
-      	return view('franchisee.pembayaran_franchisee')->with('datanota', $datanota);
+      	return view('franchisor.pembayaran_franchisor')->with('daftarnota', $daftarnota);
     }
 
     public function storenota(Request $request, $id) {
@@ -75,5 +74,19 @@ class notaController extends Controller
          
     
         return redirect('/pembayaranfranchisee');
+    }
+
+    public function tolak($id) {
+    	$notalist = nota::where('id', $id)->firstOrFail();
+    	$notalist->status_pembayaran = "Verifikasi Ditolak";
+    	$notalist->save();
+    	return redirect('/pembayaranfranchisor');
+    }
+
+	public function terima($id) {
+    	$notalist = nota::where('id', $id)->firstOrFail();
+    	$notalist->status_pembayaran = "Verifikasi Diterima";
+    	$notalist->save();
+    	return redirect('/pembayaranfranchisor');
     }
 }

@@ -49,6 +49,11 @@ Route::get('/api/pembukuan/user/{id}', 'buku@show');
 Route::get('franchisor/pembukuan', 'pembukuanWeb@getData');
 Route::post('franchisor/pembukuan', 'pembukuanWeb@store');
 
+//Pembayaran Franchisor
+Route::get('/pembayaranfranchisor', 'notaController@notafranchisor');
+Route::get('/pembayaranfranchisor/{id}/tolak', 'notaController@tolak');
+Route::get('/pembayaranfranchisor/{id}/terima', 'notaController@terima');
+
 //Franchisee
 //Pembukuan Franchisee
 Route::get('franchisee/pembukuan', 'pembukuanWeb@getData');
@@ -57,7 +62,7 @@ Route::get('franchisee/pembukuan/{id}/delete', 'pembukuanWeb@destroy');
 
 //Pembayaran Franchisee
 Route::get('/pembayaranfranchisee', 'notaController@notafranchisee');
-Route::get('/pembayaranfranchisee/{id}', 'notaController@storenota');
+Route::post('/pembayaranfranchisee/{id}', 'notaController@storenota');
 
 //API nota franchisee
 Route::get('/api/notafranchisee/user/{id}', 'notaee@show');

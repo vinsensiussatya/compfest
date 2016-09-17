@@ -38,6 +38,7 @@ th {
 				<div class="panel-body">
 					<table>
 					  	<tr>
+					  		<th>ID Franchisee</th>
 					    	<th>Tanggal</th>
 					    	<th>Persentase Franchisor</th>
 					    	<th>Persentase Franchisee</th>
@@ -48,54 +49,66 @@ th {
 					   	</tr>
 
 					   	<?php $i=0; ?>
-					        @foreach ($datanota as $nota)
+					        @foreach ($daftarnota as $nota)
 					    <?php $i++; ?>
 					  	<tr>
+					  		<td>{{$nota->user_id}}</td>
 					    	<td>{{$nota->tanggal}}</td>
 					     	<td>{{$nota->presentase1}}</td>
 					     	<td>{{$nota->presentase2}}</td>
 					     	<td>{{$nota->status_pembayaran}}</td>
 					     	<td><a href="upload/notapembayaran/<?php echo $nota->id; echo '_'; echo $nota->filename;?>">{{ $nota->filename }}</a>
-					     	<td> 
-     							<a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $nota->id;?>" href="#">Upload Nota</a>
+					     	<td><a class="btn btn-success" data-placement="bottom" title="Terima" data-toggle="modal" href="#" data-target="#modalok<?php echo $nota->id;?>"><span class="glyphicon glyphicon-ok"></a>
+					     		<a class="btn btn-danger" data-placement="bottom" title="Tolak" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-remove"></a>
+					     		
      						</td>
 
-						    <div id="modalshow<?php echo $nota->id;?>" class="modal fade" role="dialog">
-						  		<div class="modal-dialog">
-						    		<div class="modal-content">
-						      			<div class="modal-header">
-						        			<button type="button" class="close" data-dismiss="modal">&times;</button>
-						        			<h4 class="modal-title">Upload Nota</h4>
-						      			</div>
-							      		<div class="modal-body">
-							      			Tanggal : {{$nota->tanggal}}
-							      			<br>
-											<form action="{{ url('/pembayaranfranchisee/'.$nota->id) }}" method="post" enctype="multipart/form-data">
-												<div class="col-xs-8">
-												Deskripsi Nota :<br>
-								  				<input class="form-control" type="text" name="deskripsi" value="">
-								  				</div><br>
+     						<div class="modal fade" id="modaldelete<?php echo $nota->id;?>" tabindex="-1" role="dialog">
+		                        <div class="modal-dialog modal-sm" role="document">
+		                            <div class="modal-content">
+		                                <div class="modal-header">
+		                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+		                                        <span aria-hidden="true">&times;</span>
+		                                    </button>
+		                                    <h4 class="modal-title"><b>Perhatian</b></h4>
+		                                </div>
 
-								    			<div class="col-xs-8">
-								    			Upload File Nota(maks 500kb) :
-								        			<input type="file" class="btn btn-default btn-file" value="fileToUpload" name="fileToUpload" id="fileToUpload" required="required"  />
-								    			</div>
-								    			<br>
-								    			<br>
-								    			<br>
-								    			<br>
-								      	</div>
+		                                <div class="modal-body">
+		                                    <input type="hidden" value="<?php echo $nota->id;?>" name="id">
+		                                    <h5>Apakah Anda yakin akan menolak file ini?</h5>
+		                                </div>
+		                                <div class="modal-footer">
+		                                    <a class="btn btn-info btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
+		                                    <a class="btn btn-danger btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@tolak', $nota->id) }}">Ya</a>
+		                                </div>
+		                          
+		                            </div>
+		                        </div>
+		                    </div>
 
-								      	<div class="modal-footer">
-								      		<input class="btn btn-success" type="submit" value="Simpan"/>
-												<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-											
-								        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								      	</div>
-								      	</form>
-							    	</div>
-							  	</div>
-							</div>
+     						<div class="modal fade" id="modalok<?php echo $nota->id;?>" tabindex="-1" role="dialog">
+		                        <div class="modal-dialog modal-sm" role="document">
+		                            <div class="modal-content">
+		                                <div class="modal-header">
+		                                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+		                                        <span aria-hidden="true">&times;</span>
+		                                    </button>
+		                                    <h4 class="modal-title"><b>Perhatian</b></h4>
+		                                </div>
+
+		                                <div class="modal-body">
+		                                    <input type="hidden" value="<?php echo $nota->id;?>" name="id">
+		                                    <h5>Apakah Anda yakin akan menerima file ini?</h5>
+		                                </div>
+		                                <div class="modal-footer">
+		                                    <a class="btn btn-danger btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
+		                                    <a class="btn btn-info btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@terima', $nota->id) }}">Ya</a>
+		                                </div>
+		                          
+		                            </div>
+		                        </div>
+		                    </div>
+						    
 						</tr>
 						@endforeach
 					</table>
