@@ -56,6 +56,9 @@ Route::get('/pembayaranfranchisor', 'notaController@notafranchisor');
 Route::get('/pembayaranfranchisor/{id}/tolak', 'notaController@tolak');
 Route::get('/pembayaranfranchisor/{id}/terima', 'notaController@terima');
 
+//API nota franchisor
+Route::get('/api/notafranchisor', 'notaor@show');
+
 //Franchisee
 //Pembukuan Franchisee
 Route::get('franchisee/pembukuan', 'pembukuanWeb@getData');
