@@ -14,7 +14,7 @@ class buku extends Controller
 {
     public function show($id)
     {
-	$data=pembukuan::where('user_id',$id)->paginate(5);
+	$data=pembukuan::where('user_id',$id)->orderBy('created_at', 'desc')->paginate(5);
 	if(is_null($data))
 	{
 	     return Response::json("not found",404);
