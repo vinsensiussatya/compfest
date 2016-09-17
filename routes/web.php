@@ -69,3 +69,4 @@ Route::get('/api/notafranchisee/user/{id}', 'notaee@show');
 
 //Statistik
 Route::get('/statistik/pemasukan','statistikController@pengeluaranbulan');
+Route::get('/statistik/franchisee','statistikController@pengeluaranfranchisee');
