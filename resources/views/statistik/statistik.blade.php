@@ -7,7 +7,7 @@
 </ol>
 
 
-<div id="pengeluaran-div" align="center" style="width: 850px; height: 400px"></div>
+<div id="pengeluaran-div" align="center" style="width: 100%; height: 100%"></div>
 <?= \Lava::render('BarChart', 'Pengeluaran', 'pengeluaran-div') ?>
 
 @endsection

@@ -69,7 +69,7 @@
 
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <img src=http://www.desktopimages.org/pictures/2013/0227/1/briefcase-full-of-money-background-354620.jpg alt="">
+                    <img src="http://www.desktopimages.org/pictures/2013/0227/1/briefcase-full-of-money-background-354620.jpg" alt="">
                     <div class="caption">
                         <h3>Status Pembayaran</h3>
                         <p>Melihat status pembayaran franchisee</p>
@@ -94,6 +94,71 @@
             </div>
 
         </div>
+@endrole
+
+
+
+
+ @role(2)
+        
+<div align="center">
+        <div class="row text-center">
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://www.propertymanagementpuntacana.com/wp-content/uploads/2014/05/Go-Punta-Cana-Real-Estate-Property-Management-Accounting-And-Bookeeping.jpg" alt="">
+                    <div class="caption">
+                        <h3>Pembukuan</h3>
+                        <p>Memudahkan anda untuk melakukan pembukuan</p>
+                        <p>
+                            <a href="{{url('franchisee/pembukuan')}}" class="btn btn-primary">Mulai</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://www.hremploymentscreening.com/images-blog/fraudulent-resumes-employment-background-verification-check.jpg" alt="">
+                    <div class="caption">
+                        <h3>Statistik</h3>
+                        <p>Visualisasi data keuangan anda sehingga lebih mudah dimengerti</p>
+                        <p>
+                            <a href="{{url('statistik/franchisee')}}" class="btn btn-primary">Mulai</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src=http://www.desktopimages.org/pictures/2013/0227/1/briefcase-full-of-money-background-354620.jpg alt="">
+                    <div class="caption">
+                        <h3>Lapor Pembayaran</h3>
+                        <p>Melaporkan pembayaran pada franchisor</p>
+                        <p>
+                            <a <a href="{{url('/pembayaranfranchisee')}}" class="btn btn-primary">Mulai</a> 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+           <!--  <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <img src="http://www.bluelandblog2.com/wp-content/uploads/2015/10/business-800x500-300x188.jpg" alt="">
+                    <div class="caption">
+                        <h3>Data Franchisee</h3>
+                        <p>Melihat detail data franchisee yang anda miliki</p>
+                        <p>
+                            <a href="#" class="btn btn-primary">Mulai</a> 
+                        </p>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+</div>
 @endrole
 
 
