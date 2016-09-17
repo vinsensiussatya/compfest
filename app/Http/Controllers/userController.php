@@ -41,7 +41,8 @@ class userController extends Controller
 		//return response()->json(compact('token'));
 		
 		if($user != null){
-		return response()->json(array('user'=>$user,'role'=>$shit));
+	//	return response()->json(array('user'=>$user,'role'=>$shit));
+			return response()->json(array($user, $shit));
 		}
 
 		else{

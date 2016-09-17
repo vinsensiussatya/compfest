@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b66f02931e3bfc78ea9fdf1f00b1881",
+    "content-hash": "8f2312b25cc303f0230430e631bcfab1",
     "packages": [
         {
             "name": "bican/roles",
-            "version": "2.1.7",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/romanbican/roles.git",
-                "reference": "582349795ef0af9ff1a64bb2c1b884bbd5ab7c98"
+                "url": "https://github.com/nikolaynesov/roles.git",
+                "reference": "6ba63fc5fe29f0a028361b83fc4fb29d4ec66501"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/romanbican/roles/zipball/582349795ef0af9ff1a64bb2c1b884bbd5ab7c98",
-                "reference": "582349795ef0af9ff1a64bb2c1b884bbd5ab7c98",
+                "url": "https://api.github.com/repos/nikolaynesov/roles/zipball/6ba63fc5fe29f0a028361b83fc4fb29d4ec66501",
+                "reference": "6ba63fc5fe29f0a028361b83fc4fb29d4ec66501",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,6 @@
                     "Bican\\Roles": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -49,7 +48,10 @@
                 "permissions",
                 "roles"
             ],
-            "time": "2015-07-30 10:00:12"
+            "support": {
+                "source": "https://github.com/nikolaynesov/roles/tree/master"
+            },
+            "time": "2016-09-14 08:24:01"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -3680,7 +3682,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "bican/roles": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -32,6 +32,19 @@ Route::group(array('prefix'=>'api'),function(){
 });
 
 
+//API LOGIN
 Route::post('api/register', 'userController@register');
 Route::post('api/authenticate', 'userController@authenticate');
 Route::get('api/authenticate/user', 'userController@getAuthenticatedUser');
+
+
+//Franchisor
+//Pembukuan franchisor
+Route::get('franchisor/pembukuan', 'pembukuanWeb@getData');
+
+
+//Franchisee
+//Pembukuan Franchisee
+Route::get('franchisee/pembukuan', 'pembukuanWeb@getData');
+Route::post('franchisee/pembukuan', 'pembukuanWeb@store');
+Route::get('franchisee/pembukuan/{id}/delete', 'pembukuanWeb@destroy');
