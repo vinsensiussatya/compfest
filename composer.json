@@ -9,7 +9,7 @@
         "laravel/framework": "5.3.*",
         "paragonie/random_compat": "1.4.*",
         "tymon/jwt-auth": "0.5.*",
-        "bican/roles": "2.1.*"
+        "bican/roles": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -49,5 +49,7 @@
     },
     "config": {
         "preferred-install": "dist"
-    }
+    },
+    "repositories": [ { "type": "vcs", "url": "https://github.com/nikolaynesov/roles.git" } ] 
+
 }
