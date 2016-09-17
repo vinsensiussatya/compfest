@@ -47,7 +47,7 @@ Route::get('/api/pembukuan/user/{id}', 'buku@show');
 //Franchisor
 //Pembukuan franchisor
 Route::get('franchisor/pembukuan', 'pembukuanWeb@getData');
-
+Route::post('franchisor/pembukuan', 'pembukuanWeb@store');
 
 //Franchisee
 //Pembukuan Franchisee
@@ -61,3 +61,6 @@ Route::get('/pembayaranfranchisee/{id}', 'notaController@storenota');
 
 //API nota franchisee
 Route::get('/api/notafranchisee/user/{id}', 'notaee@show');
+
+//Statistik
+Route::get('/statistik/pemasukan','statistikController@pengeluaranbulan');

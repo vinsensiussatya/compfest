@@ -125,6 +125,42 @@ th {
 @endrole
 
 
+@role(1)
+
+
+<div style="float: right; margin-right: 200px">
+
+<h2>Tambah Pembukuan</h2>
+<form action="{{ url('franchisor/pembukuan') }}" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    
+    <div class="form-group">
+        <input required="required" value="" placeholder="Tanggal" type="text" name = "tanggal" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input required="required" value="" placeholder="Uraian" type="text" name = "uraian" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <input required="required" value="" placeholder="Debet" type="text" name = "debet" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input required="required" value="" placeholder="Kredit" type="text" name = "kredit" class="form-control" />
+    </div>
+    
+    <div class="col-xs-5">
+        <input type="submit" class="btn btn-success pull-right" value="Tambah" name="submit"/>
+        <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+    </div>
+</form>
+
+         </div>
+@endrole
+
+
 
 
 
