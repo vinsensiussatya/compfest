@@ -53,7 +53,7 @@ class notaController extends Controller
     public function notafranchisor()
     {
 
-        $daftarnota = nota::orderBy('created_at','desc')->paginate(10);
+        $daftarnota = nota::leftJoin('data_franchisee', 'notapersen.user_id', '=', 'data_franchisee.user_id')->orderBy('notapersen.created_at','desc')->paginate(10);
         
         return view('franchisor.pembayaran_franchisor')->with('daftarnota', $daftarnota);
     }
