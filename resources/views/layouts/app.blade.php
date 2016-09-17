@@ -21,7 +21,7 @@
     </script>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed">
+    <nav class="navbar navbar-inverse navbar-fixed" style="background-color: #F57C00; border: none; color: white">
         <div class="container">
             <div class="navbar-header">
 
@@ -34,7 +34,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a style="color: white" class="navbar-brand" href="{{ url('/') }}">
                    FAMILIA
                 </a>
             </div>
@@ -46,14 +46,14 @@
                 </ul>
 
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" >
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: white">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
