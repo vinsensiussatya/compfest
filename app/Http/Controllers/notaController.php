@@ -109,14 +109,14 @@ class notaController extends Controller
     }
 
     public function tolak($id) {
-        $notalist = nota::where('id', $id)->firstOrFail();
+        $notalist = nota::where('buku_id', $id)->firstOrFail();
         $notalist->status_pembayaran = "4";
         $notalist->save();
         return redirect('/pembayaranfranchisor');
     }
 
     public function terima($id) {
-        $notalist = nota::where('id', $id)->firstOrFail();
+        $notalist = nota::where('buku_id', $id)->firstOrFail();
         $notalist->status_pembayaran = "3";
         $notalist->save();
         return redirect('/pembayaranfranchisor');

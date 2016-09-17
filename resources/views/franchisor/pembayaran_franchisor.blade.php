@@ -38,7 +38,7 @@ th {
 				<div class="panel-body">
 					<table>
 					  	<tr>
-					  		<th>ID Franchisee</th>
+					  		<th>Nama</th>
 					    	<th>Tanggal</th>
 					    	<th>Persentase Franchisor</th>
 					    	<th>Persentase Franchisee</th>
@@ -53,19 +53,38 @@ th {
 					        @foreach ($daftarnota as $nota)
 					    <?php $i++; ?>
 					  	<tr>
-					  		<td>{{$nota->user_id}}</td>
+					  		<td>{{$nota->nama}}</td>
 					    	<td>{{$nota->tanggal}}</td>
 					     	<td>{{$nota->presentase1}}</td>
 					     	<td>{{$nota->presentase2}}</td>
-					     	<td>{{$nota->status_pembayaran}}</td>
+					     	<td>
+					     		<?php 
+					     			switch($nota->status_pembayaran){
+					     				case "1":
+					     					echo "Belum Mengunggah";
+					     					break;
+					     				case "2":
+					     					echo "Belum Diverifikasi";
+					     					break;
+					     				case "3":
+					     					echo "Sudah Diverifikasi";
+					     					break;
+					     				case "4":
+					     					echo "Verifikasi Ditolak";
+					     					break;
+					     				default:
+					     					echo "status";
+					     			}
+					     		?>	
+					     	</td>
 					     	<td>{{$nota->deskripsi}}
 					     	<td><a href="upload/notapembayaran/<?php echo $nota->id; echo '_'; echo $nota->filename;?>">{{ $nota->filename }}</a>
-					     	<td><a class="btn btn-success" data-placement="bottom" title="Terima" data-toggle="modal" href="#" data-target="#modalok<?php echo $nota->id;?>"><span class="glyphicon glyphicon-ok"></a>
-					     		<a class="btn btn-danger" data-placement="bottom" title="Tolak" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-remove"></a>
+					     	<td><a class="btn btn-success" data-placement="bottom" title="Terima" data-toggle="modal" href="#" data-target="#modalok<?php echo $nota->buku_id;?>"><span class="glyphicon glyphicon-ok"></a>
+					     		<a class="btn btn-danger" data-placement="bottom" title="Tolak" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->buku_id;?>"><span class="glyphicon glyphicon-remove"></a>
 					     		
      						</td>
 
-     						<div class="modal fade" id="modaldelete<?php echo $nota->id;?>" tabindex="-1" role="dialog">
+     						<div class="modal fade" id="modaldelete<?php echo $nota->buku_id;?>" tabindex="-1" role="dialog">
 		                        <div class="modal-dialog modal-sm" role="document">
 		                            <div class="modal-content">
 		                                <div class="modal-header">
@@ -76,19 +95,19 @@ th {
 		                                </div>
 
 		                                <div class="modal-body">
-		                                    <input type="hidden" value="<?php echo $nota->id;?>" name="id">
+		                                    <input type="hidden" value="<?php echo $nota->buku_id;?>" name="id">
 		                                    <h5>Apakah Anda yakin akan menolak file ini?</h5>
 		                                </div>
 		                                <div class="modal-footer">
 		                                    <a class="btn btn-info btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
-		                                    <a class="btn btn-danger btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@tolak', $nota->id) }}">Ya</a>
+		                                    <a class="btn btn-danger btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@tolak', $nota->buku_id) }}">Ya</a>
 		                                </div>
 		                          
 		                            </div>
 		                        </div>
 		                    </div>
 
-     						<div class="modal fade" id="modalok<?php echo $nota->id;?>" tabindex="-1" role="dialog">
+     						<div class="modal fade" id="modalok<?php echo $nota->buku_id;?>" tabindex="-1" role="dialog">
 		                        <div class="modal-dialog modal-sm" role="document">
 		                            <div class="modal-content">
 		                                <div class="modal-header">
@@ -99,12 +118,12 @@ th {
 		                                </div>
 
 		                                <div class="modal-body">
-		                                    <input type="hidden" value="<?php echo $nota->id;?>" name="id">
+		                                    <input type="hidden" value="<?php echo $nota->buku_id;?>" name="id">
 		                                    <h5>Apakah Anda yakin akan menerima file ini?</h5>
 		                                </div>
 		                                <div class="modal-footer">
 		                                    <a class="btn btn-danger btn-simple pull-left" style="width:60px" title="Kembali" data-dismiss="modal">Tidak</a>
-		                                    <a class="btn btn-info btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@terima', $nota->id) }}">Ya</a>
+		                                    <a class="btn btn-info btn-simple pull-right" style="width:60px" title="Hapus" href="{{ action('notaController@terima', $nota->buku_id) }}">Ya</a>
 		                                </div>
 		                          
 		                            </div>
