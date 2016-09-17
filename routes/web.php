@@ -20,6 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::group(array('prefix'=>'api'),function(){
+	Route::resource('notafranchisee','notaFranchiseeAPI',array('except'=>array('create','edit')));
+});
+
+Route::group(array('prefix'=>'api'),function(){
 	Route::resource('franchisee','franchisee',array('except'=>array('create','edit')));
 });
 
@@ -50,3 +54,10 @@ Route::get('franchisor/pembukuan', 'pembukuanWeb@getData');
 Route::get('franchisee/pembukuan', 'pembukuanWeb@getData');
 Route::post('franchisee/pembukuan', 'pembukuanWeb@store');
 Route::get('franchisee/pembukuan/{id}/delete', 'pembukuanWeb@destroy');
+
+//Pembayaran Franchisee
+Route::get('/pembayaranfranchisee', 'notaController@notafranchisee');
+Route::get('/pembayaranfranchisee/{id}', 'notaController@storenota');
+
+//API nota franchisee
+Route::get('/api/notafranchisee/user/{id}', 'notaee@show');
