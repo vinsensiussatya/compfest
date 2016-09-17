@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DataFranchisee extends Migration
+class Laporan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class DataFranchisee extends Migration
      */
     public function up()
     {
-         Schema::create('data_franchisee', function (Blueprint $table) {
+         Schema::create('laporan', function (Blueprint $table) {
             $table->increments('id');
             $table -> integer('user_id') -> unsigned() -> default(0);
             $table->foreign('user_id')
                     ->references('id')->on('users')
                     ->onDelete('cascade');
-            $table->string('nama')->nullable();
-            $table->string('alamat')->nullable();
-            $table->string('npwp')->nullable();
-            $table->string('tanggal_mulai')->nullable();
-             $table->string('status_aktif')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('presentase1')->nullable();
+            $table->string('presentase2')->nullable();
+            $table->string('status_pembayaran')->nullable();
             $table->timestamps();
         });
     }
@@ -33,8 +32,8 @@ class DataFranchisee extends Migration
      *
      * @return void
      */
-   public function down()
+    public function down()
     {
-        Schema::drop('data_franchisee');
+         Schema::drop('laporan');
     }
 }

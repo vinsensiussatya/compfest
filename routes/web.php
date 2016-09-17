@@ -23,6 +23,15 @@ Route::group(array('prefix'=>'api'),function(){
 	Route::resource('franchisee','franchisee',array('except'=>array('create','edit')));
 });
 
+Route::group(array('prefix'=>'api'),function(){
+	Route::resource('pembukuan','pembukuanController',array('except'=>array('create','edit')));
+});
+
+Route::group(array('prefix'=>'api'),function(){
+	Route::resource('laporan','laporanController',array('except'=>array('create','edit')));
+});
+
+
 Route::post('api/register', 'userController@register');
 Route::post('api/authenticate', 'userController@authenticate');
 Route::get('api/authenticate/user', 'userController@getAuthenticatedUser');

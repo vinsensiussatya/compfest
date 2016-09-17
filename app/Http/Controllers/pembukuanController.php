@@ -8,6 +8,10 @@ use App\Http\Requests;
 
 use App\pembukuan;
 
+use Response;
+
+use Auth;
+
 class pembukuanController extends Controller
 {
      public function index()
@@ -18,14 +22,14 @@ class pembukuanController extends Controller
 
     public function store(Request $request){
     	 $data = new pembukuan();
-        $data->user_id = $request->get('user_id');
+        $data->user_id =  $request->get('user_id');
         $data->tanggal = $request->get('tanggal');
         $data->uraian = $request->get('uraian');
         $data->debet = $request->get('debet');
         $data->kredit = $request->get('kredit');
         $data->total_debet = $request->get('total_debet');
         $data->total_kredit = $request->get('total_kredit');
-		$data->total_kredit = $request->get('total_kredit');
+		$data->total = $request->get('total');
 		$success = $data->save();
 
 	if(!$success){
@@ -51,26 +55,41 @@ class pembukuanController extends Controller
 	{
 		$data=pembukuan::find($id);
 	 
-		if(!is_null(Input::get('user_id')))
+		if(!is_null(Input::get('tanggal')))
 		{
-			$data->nama=Input::get('nama');
+			$data->nama=Input::get('tanggal');
 		}
 	 
-		if(!is_null(Input::get('alamat')))
+		if(!is_null(Input::get('uraian')))
 		{
-			$data->alamat=Input::get('alamat');
+			$data->alamat=Input::get('uraian');
 		}
 
-		if(!is_null(Input::get('npwp')))
+		if(!is_null(Input::get('debet')))
 		{
-			$data->npwp=Input::get('npwp');
+			$data->npwp=Input::get('debet');
 		}
 	 	
-	 	if(!is_null(Input::get('status_aktif')))
+	 	if(!is_null(Input::get('kredit')))
 		{
-			$data->status_aktif=Input::get('status_aktif');
+			$data->status_aktif=Input::get('kredit');
 		}
 
+
+		if(!is_null(Input::get('total_debet')))
+		{
+			$data->npwp=Input::get('total_debet');
+		}
+	 	
+	 	if(!is_null(Input::get('total_kredit')))
+		{
+			$data->status_aktif=Input::get('total_kredit');
+		}
+
+		if(!is_null(Input::get('total')))
+		{
+			$data->status_aktif=Input::get('total');
+		}
 
 		$success=$data->save();
 	 
