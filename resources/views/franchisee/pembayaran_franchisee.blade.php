@@ -52,7 +52,7 @@ th {
 					    <?php $i++; ?>
 					  	<tr>
 					    	<td>{{$nota->tanggal}}</td>
-					     	<td>{{$nota->presentase1}}</td>
+					    	<td>{{$nota->presentase1}}</td>
 					     	<td>{{$nota->presentase2}}</td>
 					     	<td>{{$nota->status_pembayaran}}</td>
 					     	<td><a href="upload/notapembayaran/<?php echo $nota->id; echo '_'; echo $nota->filename;?>">{{ $nota->filename }}</a>

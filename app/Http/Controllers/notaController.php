@@ -7,6 +7,7 @@ use Auth;
 use App\Http\Requests;
 use App\notapersen as nota;
 use App\data_franchisee as franchisee;
+use App\pembukuan as buku;
 use Response;
 
 class notaController extends Controller
@@ -14,11 +15,27 @@ class notaController extends Controller
     public function notafranchisee()
     {
 
-    	$id = Auth::user()->id;
-        $datanota = nota::where('user_id', $id)->orderBy('created_at','desc')->paginate(10);
-        
+        $id = Auth::user()->id;
+        $pembukuan = buku::where('user_id', $id)->orderBy('created_at', 'desc')->first();
+        $buku_id = $pembukuan->id;
+        $datanota = nota::where('buku_id', $buku_id)->firstOrFail();
+        if($pembukuan->total <= 0) 
+        {
+            $datanota->presentase1 = 0;
+            $datanota->presentase2 = 0;
+            $datanota->save();
+            $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+        }
+        else
+        {
+            $datanota->presentase1 = 0.25 * $pembukuan->total;
+            $datanota->presentase2 = 0.75 * $pembukuan->total;
+            $datanota->save();
+            $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+        }
 
-      	return view('franchisee.pembayaran_franchisee')->with('datanota', $datanota);
+        return view('franchisee.pembayaran_franchisee')->with('datanota', $datanota);
+        
     }
 
     public function notafranchisor()
@@ -26,7 +43,7 @@ class notaController extends Controller
 
         $daftarnota = nota::orderBy('created_at','desc')->paginate(10);
         
-      	return view('franchisor.pembayaran_franchisor')->with('daftarnota', $daftarnota);
+        return view('franchisor.pembayaran_franchisor')->with('daftarnota', $daftarnota);
     }
 
     public function storenota(Request $request, $id) {
@@ -67,26 +84,26 @@ class notaController extends Controller
         }
 
         $notalist = nota::where('id', $id)->firstOrFail();
-      	$notalist->filename = basename($_FILES["fileToUpload"]["name"]);
-      	$notalist->status_pembayaran = "Belum Diverifikasi";
-      	$notalist->deskripsi = $request->get('deskripsi');
-      	$notalist->save();
+        $notalist->filename = basename($_FILES["fileToUpload"]["name"]);
+        $notalist->status_pembayaran = "Belum Diverifikasi";
+        $notalist->deskripsi = $request->get('deskripsi');
+        $notalist->save();
          
     
         return redirect('/pembayaranfranchisee');
     }
 
     public function tolak($id) {
-    	$notalist = nota::where('id', $id)->firstOrFail();
-    	$notalist->status_pembayaran = "Verifikasi Ditolak";
-    	$notalist->save();
-    	return redirect('/pembayaranfranchisor');
+        $notalist = nota::where('id', $id)->firstOrFail();
+        $notalist->status_pembayaran = "Verifikasi Ditolak";
+        $notalist->save();
+        return redirect('/pembayaranfranchisor');
     }
 
-	public function terima($id) {
-    	$notalist = nota::where('id', $id)->firstOrFail();
-    	$notalist->status_pembayaran = "Verifikasi Diterima";
-    	$notalist->save();
-    	return redirect('/pembayaranfranchisor');
+    public function terima($id) {
+        $notalist = nota::where('id', $id)->firstOrFail();
+        $notalist->status_pembayaran = "Verifikasi Diterima";
+        $notalist->save();
+        return redirect('/pembayaranfranchisor');
     }
 }
