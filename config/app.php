@@ -165,7 +165,8 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
          Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
-
+        "Khill\Lavacharts\Laravel\LavachartsServiceProvider",
+        
 
     /**
      * Third Party Service Providers...

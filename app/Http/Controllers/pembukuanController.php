@@ -36,7 +36,8 @@ class pembukuanController extends Controller
 		  return Response::json("error saving",500);
 		}
 		 
-	return Response::json("success",201);
+	$message = array('success' => 'true');	 
+	return Response::json($message);
 
     }
 
