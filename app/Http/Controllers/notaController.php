@@ -23,7 +23,8 @@ class notaController extends Controller
             $datanota = new nota();
             $datanota->user_id = $id;
             $datanota->buku_id = $buku_id;
-            $datanota->tanggal = date('d-m-Y');       
+            $datanota->tanggal = date('d-m-Y');
+            $datanota->status_pembayaran = "1";       
         }
 
         else
@@ -33,15 +34,17 @@ class notaController extends Controller
             {
                 $datanota->presentase1 = 0;
                 $datanota->presentase2 = 0;
+                $datanota->status_pembayaran = "1";
                 $datanota->save();
-                $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->paginate(10);
             }
             else
             {
                 $datanota->presentase1 = 0.25 * $pembukuan->total;
                 $datanota->presentase2 = 0.75 * $pembukuan->total;
+                $datanota->status_pembayaran = "1";
                 $datanota->save();
-                $datanota = nota::where('buku_id', $buku_id)->orWhereNotNull('status_pembayaran')->paginate(10);
+                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->paginate(10);
             }
         }
         
@@ -97,7 +100,7 @@ class notaController extends Controller
 
         $notalist = nota::where('id', $id)->firstOrFail();
         $notalist->filename = basename($_FILES["fileToUpload"]["name"]);
-        $notalist->status_pembayaran = "Belum Diverifikasi";
+        $notalist->status_pembayaran = "2";
         $notalist->deskripsi = $request->get('deskripsi');
         $notalist->save();
          
@@ -107,14 +110,14 @@ class notaController extends Controller
 
     public function tolak($id) {
         $notalist = nota::where('id', $id)->firstOrFail();
-        $notalist->status_pembayaran = "Verifikasi Ditolak";
+        $notalist->status_pembayaran = "4";
         $notalist->save();
         return redirect('/pembayaranfranchisor');
     }
 
     public function terima($id) {
         $notalist = nota::where('id', $id)->firstOrFail();
-        $notalist->status_pembayaran = "Verifikasi Diterima";
+        $notalist->status_pembayaran = "3";
         $notalist->save();
         return redirect('/pembayaranfranchisor');
     }

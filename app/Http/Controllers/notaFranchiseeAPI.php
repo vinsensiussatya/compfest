@@ -57,7 +57,7 @@ class notaFranchiseeAPI extends Controller
 
         $notalist = nota::where('id', $id)->firstOrFail();
       	$notalist->filename = basename($_FILES["fileToUpload"]["name"]);
-      	$notalist->status_pembayaran = "Belum Diverifikasi";
+      	$notalist->status_pembayaran = "2";
       	$notalist->deskripsi = $request->get('deskripsi');
       	$success = $notalist->save();
          
