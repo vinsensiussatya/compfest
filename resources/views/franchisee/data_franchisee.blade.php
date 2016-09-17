@@ -36,6 +36,7 @@ th {
 				<div class="x_title">
 				</div>
 				<div class="panel-body">
+
 					<table>
 					  	<tr>
 					  		<th>ID</th>
@@ -57,7 +58,8 @@ th {
 					     	<td>{{$fran->npwp}}</td>
 					     	<td>{{$fran->tanggal_mulai}}</td>
 					     	<td>{{$fran->status_aktif}}</td>
-					     	<td><a class="btn btn-warning" data-placement="bottom" title="Update" href="#"><span class="glyphicon glyphicon-pencil"></a>
+					     	<td><a class="btn btn-warning" title="Edit Data" href="{{ url('/edit/'.$fran->id)}}"
+					     	><span class="glyphicon glyphicon-pencil"></a>
 					     		<a class="btn btn-danger" data-placement="bottom" title="Hapus" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $fran->id;?>"><span class="glyphicon glyphicon-trash"></a>
 					     		
      						</td>

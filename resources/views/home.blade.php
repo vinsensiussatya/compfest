@@ -87,7 +87,7 @@
                         <h3>Data Franchisee</h3>
                         <p>Melihat detail data franchisee yang anda miliki</p>
                         <p>
-                            <a href="#" class="btn btn-primary">Mulai</a> 
+                            <a href="{{url('/datafranchisee')}}" class="btn btn-primary">Mulai</a> 
                         </p>
                     </div>
                 </div>
