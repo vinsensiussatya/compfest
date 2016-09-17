@@ -18,7 +18,11 @@ class notaController extends Controller
         $id = Auth::user()->id;
         $pembukuan = buku::where('user_id', $id)->orderBy('created_at', 'desc')->first();
         $buku_id = $pembukuan->id;
-        $datanota = nota::where('buku_id', $buku_id)->firstOrFail();
+        $datanota = new nota();
+        $datanota->user_id = $id;
+        $datanota->buku_id = $buku_id;
+        $datanota->tanggal = date('d-m-Y');
+        
         if($pembukuan->total <= 0) 
         {
             $datanota->presentase1 = 0;
