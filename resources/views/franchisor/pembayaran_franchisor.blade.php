@@ -43,6 +43,7 @@ th {
 					    	<th>Persentase Franchisor</th>
 					    	<th>Persentase Franchisee</th>
 					    	<th>Status Pembayaran</th>
+					    	<th>Uraian</th>
 					    	<th>File Nota</th>
 					    	<th>Aksi</th>
 					   
@@ -57,6 +58,7 @@ th {
 					     	<td>{{$nota->presentase1}}</td>
 					     	<td>{{$nota->presentase2}}</td>
 					     	<td>{{$nota->status_pembayaran}}</td>
+					     	<td>{{$nota->deskripsi}}
 					     	<td><a href="upload/notapembayaran/<?php echo $nota->id; echo '_'; echo $nota->filename;?>">{{ $nota->filename }}</a>
 					     	<td><a class="btn btn-success" data-placement="bottom" title="Terima" data-toggle="modal" href="#" data-target="#modalok<?php echo $nota->id;?>"><span class="glyphicon glyphicon-ok"></a>
 					     		<a class="btn btn-danger" data-placement="bottom" title="Tolak" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $nota->id;?>"><span class="glyphicon glyphicon-remove"></a>

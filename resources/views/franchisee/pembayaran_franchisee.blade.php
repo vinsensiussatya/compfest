@@ -42,6 +42,7 @@ th {
 					    	<th>Persentase Franchisor</th>
 					    	<th>Persentase Franchisee</th>
 					    	<th>Status Pembayaran</th>
+					    	<th>Uraian</th>
 					    	<th>File Nota</th>
 					    	<th>Aksi</th>
 					   
@@ -54,7 +55,28 @@ th {
 					    	<td>{{$nota->tanggal}}</td>
 					    	<td>{{$nota->presentase1}}</td>
 					     	<td>{{$nota->presentase2}}</td>
-					     	<td>{{$nota->status_pembayaran}}</td>
+					     	<td>
+					     		<?php 
+					     			switch($nota->status_pembayaran){
+					     				case "1":
+					     					echo "Belum Mengunggah";
+					     					break;
+					     				case "2":
+					     					echo "Belum Diverifikasi";
+					     					break;
+					     				case "3":
+					     					echo "Sudah Diverifikasi";
+					     					break;
+					     				case "4":
+					     					echo "Verifikasi Ditolak";
+					     					break;
+					     				default:
+					     					echo "status";
+					     			}
+					     	
+					     		?>	
+					     	</td>
+					     	<td>{{$nota->deskripsi}}</td>
 					     	<td><a href="upload/notapembayaran/<?php echo $nota->id; echo '_'; echo $nota->filename;?>">{{ $nota->filename }}</a>
 					     	<td> 
      							<a class="btn btn-success" data-placement="bottom" title="Lihat Data" data-toggle="modal" data-id ="book->id" data-target="#modalshow<?php echo $nota->id;?>" href="#">Upload Nota</a>
@@ -72,7 +94,7 @@ th {
 							      			<br>
 											<form action="{{ url('/pembayaranfranchisee/'.$nota->id) }}" method="post" enctype="multipart/form-data">
 												<div class="col-xs-8">
-												Deskripsi Nota :<br>
+												Uraian Nota :<br>
 								  				<input class="form-control" type="text" name="deskripsi" value="">
 								  				</div><br>
 

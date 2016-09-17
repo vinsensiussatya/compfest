@@ -36,7 +36,7 @@ class notaController extends Controller
                 $datanota->presentase2 = 0;
                 $datanota->status_pembayaran = "1";
                 $datanota->save();
-                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->paginate(10);
+                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->where('user_id', $id)->paginate(10);
             }
             else
             {
@@ -44,7 +44,7 @@ class notaController extends Controller
                 $datanota->presentase2 = 0.75 * $pembukuan->total;
                 $datanota->status_pembayaran = "1";
                 $datanota->save();
-                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->paginate(10);
+                $datanota = nota::where('buku_id', $buku_id)->orWhere('status_pembayaran', '!=', '1')->where('user_id', $id)->paginate(10);
             }
         }
         
