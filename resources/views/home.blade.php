@@ -156,7 +156,7 @@
 
 <h2>Pemberitahuan
 @role(1)
-<a type="button" class="btn btn-success btn-simple pull-right" style="float:right; margin-top:-5px" data-toggle="collapse" data-target="#tambahdiary"><i class="fa fa-plus-square" style="margin-right:10px" ></i>Tambah</a>
+<a type="button" class="btn btn-success btn-simple pull-right" style="float:right; margin-top:-5px" data-toggle="collapse" data-target="#tambahdiary"><i class="glyphicon glyphicon-plus" style="margin-right:10px" ></i>Tambah</a>
 @endrole
 
 </h2>
@@ -202,8 +202,8 @@
                     @role(1)
                     @if($diary->active == '1')
                     <div class="btn-group pull-right" role="group" >
-                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" fa fa-pencil-square-o"></i></button>
-                      <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="fa fa-trash"></button>
+                      <button type="button" class="btn btn-warning btn-simple" data-toggle="collapse" data-target="#editdiary<?php echo $diary->id;?>"> <i class=" glyphicon glyphicon-pencil"></i></button>
+                      <button type="button" class="btn btn-danger btn-simple" title="Hapus Data" data-toggle="modal" href="#" data-target="#modaldelete<?php echo $diary->id;?>"><span class="glyphicon glyphicon-trash"></button>
                     </div>
 
                     <div class="modal fade" id="modaldelete<?php echo $diary->id;?>" tabindex="-1" role="dialog" >
