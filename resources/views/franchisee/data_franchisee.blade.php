@@ -31,12 +31,15 @@ th {
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">DAFTAR FRANCHISEE</div>
+                <div style="font-size: 25px; " class="panel-heading"><strong>DAFTAR FRANCHISEE
+                	<a style="float: right;" class="btn btn-success" title="Tambah Franchisee" href="{{ url('/registeri')}}">Tambah Franchisee</a>
+                	</strong>
+                </div>
 
 				<div class="x_title">
 				</div>
 
-				<a style="float: right;" class="btn btn-success" title="Tambah Franchisee" href="{{ url('/registeri')}}">Tambah Franchisee</a>
+				
 
 				<div class="panel-body">
 
