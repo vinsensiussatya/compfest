@@ -44,12 +44,21 @@
 
 @section('content')
 
-@if($diary)
-	<div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+            @if($diary)
+                <div class="panel-heading">{{$diary->title}}</div>
+
+
+
+
+	<div style="margin: 20px" align="justify">
 		{!! $diary->body !!}
 	</div>	
-	<div>
-		<h2>Leave a comment</h2>
+	<div style="margin-left: 20px">
+		<h4>Leave a comment</h4>
 	</div>
 	@if(Auth::guest())
 		<p>Login to Comment</p>
@@ -90,6 +99,12 @@
 
 		
 {!!$comments->render()!!}
+
+
+</div>
+</div>
+</div>
+</div>
 
 @else
 404 error

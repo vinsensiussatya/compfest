@@ -88,7 +88,12 @@ Route::get('/statistik/franchisee','statistikController@pengeluaranfranchisee');
 
 
 //Diary
+
+Route::group(['middleware' => 'auth'], function() {
+
 Route::get('/', 'pemberitahuan@index');
+Route::get('/home', 'pemberitahuan@index');
+
 Route::get('diarynewpost','pemberitahuan@create');
 Route::post('diarynewpost','pemberitahuan@store');
 Route::get('diaryedit/{slug}','pemberitahuan@edit');
@@ -96,3 +101,5 @@ Route::post('diaryupdate','pemberitahuan@update');
 Route::get('diarydelete/{id}','pemberitahuan@destroy');
 Route::get('/diary/{slug}',['as' => 'diary', 'uses' => 'pemberitahuan@show'])->where('slug', '[A-Za-z0-9-_]+');
 Route::post('comment/add','CommentController@store');
+
+});
