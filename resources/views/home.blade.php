@@ -152,14 +152,18 @@
 </div>
 @endrole
 
-@role(1)
+
 
 <h2>Pemberitahuan
+@role(1)
 <a type="button" class="btn btn-success btn-simple pull-right" style="float:right; margin-top:-5px" data-toggle="collapse" data-target="#tambahdiary"><i class="fa fa-plus-square" style="margin-right:10px" ></i>Tambah</a>
+@endrole
+
 </h2>
 <div class="x_title">
 </div>
 
+@role(1)
 <div id="tambahdiary" class="collapse" style="margin-left:0px; margin-right:0px; margin-top:0px">
   <script type="text/javascript" src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
   <script type="text/javascript">
