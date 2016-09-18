@@ -116,7 +116,7 @@ return view('diary.show')->with('diary',$diary)->with('comments',$comments);
 		else
 		{
 			\Session::flash('flash_message_edit','');
-			return redirect('/diary')->withErrors('you have not sufficient permissions');
+			return redirect('/')->withErrors('you have not sufficient permissions');
 		}
 	}
 
@@ -164,7 +164,7 @@ return view('diary.show')->with('diary',$diary)->with('comments',$comments);
 			}
 			$diary->save();
 			\Session::flash('flash_message_edit','');
-	 		return redirect('/diary')->withMessage($message);
+	 		return redirect('/')->withMessage($message);
 		}
 		else
 		{

@@ -36,8 +36,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a style="color: white" class="navbar-brand" href="{{ url('/') }}">
-                   FAMILIA
+                <a style="color: white; font-size: 20px; font-family: Helvetica" class="navbar-brand" href="{{ url('/') }}"><span><img src="{{url('images/logo.png')}}" height="30" width="30"></span>
+                   Familia
                 </a>
             </div>
 

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<ol class="breadcrumb">
+<ol style="padding: 8px 100px" class="breadcrumb">
   <li><a href="{{ url('/home') }}">Home</a></li>
   <li><a href="#">Statistik</a></li>
 </ol>
 
 
-<div id="pengeluaran-div" align="center" style="width: 100%; height: 100%"></div>
+<div id="pengeluaran-div" align="center" style="width: 850px; height: 500px"></div>
 <?= \Lava::render('BarChart', 'Pengeluaran', 'pengeluaran-div') ?>
 
 @endsection

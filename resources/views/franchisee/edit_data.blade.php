@@ -2,7 +2,7 @@
 
 
 @section('content')
-<ol class="breadcrumb">
+<ol style="padding: 8px 100px" class="breadcrumb">
   <li><a href="{{ url('/home') }}">Home</a></li>
   <li><a href="{{ url('/datafranchisee') }}">Data Franchisee</a></li>
   <li><a href="#">Edit Data</a></li>
