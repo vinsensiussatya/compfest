@@ -2,6 +2,11 @@
 
 @section('content')
 
+<ol class="breadcrumb">
+  <li><a href="{{ url('/home') }}">Home</a></li>
+  <li><a href="#">Pembukuan</a></li>
+</ol>
+
 <style type="text/css">
 
     table {

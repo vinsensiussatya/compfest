@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+
+<ol class="breadcrumb">
+  <li><a href="{{ url('/home') }}">Home</a></li>
+  <li><a href="{{ url('/datafranchisee') }}">Data Franchisee</a></li>
+  <li><a href="#">Tambah User</a></li>
+</ol>
+
 <h2>TAMBAH USER</h2>
 <div class="x_title">
 </div>
