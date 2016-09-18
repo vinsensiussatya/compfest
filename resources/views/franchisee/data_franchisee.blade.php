@@ -35,6 +35,9 @@ th {
 
 				<div class="x_title">
 				</div>
+
+				<a style="float: right;" class="btn btn-success" title="Tambah Franchisee" href="{{ url('/registeri')}}">Tambah Franchisee</a>
+
 				<div class="panel-body">
 
 					<table>

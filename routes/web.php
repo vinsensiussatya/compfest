@@ -60,8 +60,10 @@ Route::get('/pembayaranfranchisor/{id}/terima', 'notaController@terima');
 Route::get('/datafranchisee', 'daftarController@index');
 Route::get('/datafranchisee/{id}/hapus', 'daftarController@hapus');
 Route::get('/edit/{id}', 'daftarController@edit');
-Route::get('/tambah', 'daftarController@tambah');
+Route::get('/registeri', 'daftarController@registeri');
+Route::post('/create', 'daftarController@create');
 Route::post('/update/{id}', 'daftarController@update');
+Route::post('/tambah/{id}', 'daftarController@tambah');
 
 //API nota franchisor
 Route::get('/api/notafranchisor', 'notaor@show');
